@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="rps" ng-controller="rps.ctrl">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./libs/css/style.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="./angular/app.js"></script>
+</head>
+<body>
+<div>
+    <div class="row game" style="margin-top: 100px;">
+        <div class="text-center" style="height: 60px;">
+            <p id="resultText">Select a move to start the game.</p>
+            <a ng-show="view.gameStatus == 'end'" class="btn btn-primary" ng-click="restart()">Restart</a>
+        </div>
+
+        <div class="col-xs-4 col-xs-offset-4">
+            <div class="float-left">
+                <p>You</p>
+                <ul class="choice">
+                    <li class="user item r" ng-click="choose('r')">
+                        <img src="http://i38.servimg.com/u/f38/12/16/25/08/sans-t12.png"/>
+                    </li>
+                    <li class="user item p" ng-click="choose('p')">
+                        <img src="http://i38.servimg.com/u/f38/12/16/25/08/sans-t13.png"/>
+                    </li>
+                    <li class="user item s" ng-click="choose('s')">
+                        <img src="http://i38.servimg.com/u/f38/12/16/25/08/sans-t11.png"/>
+                    </li>
+                </ul>
+            </div>
+            <div class="float-right">
+                <p>Computer</p>
+                <ul class="choice" id="opponent">
+                    <li class="item enemy flip">
+                        <img ng-show="view.state == 'r'" src="http://i38.servimg.com/u/f38/12/16/25/08/sans-t12.png"/>
+                        <img ng-show="view.state == 'p'" src="http://i38.servimg.com/u/f38/12/16/25/08/sans-t13.png"/>
+                        <img ng-show="view.state == 's'" src="http://i38.servimg.com/u/f38/12/16/25/08/sans-t11.png"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
